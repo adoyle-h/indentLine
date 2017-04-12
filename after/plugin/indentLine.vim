@@ -156,12 +156,24 @@ function! s:Setup()
         call s:InitColor()
     endif
 
-    if g:indentLine_enabled
-        call s:IndentLinesEnable()
+    if exists("b:indentLine_enabled")
+        if b:indentLine_enabled
+            call s:IndentLinesEnable()
+        endif
+    else
+        if g:indentLine_enabled
+            call s:IndentLinesEnable()
+        endif
     endif
 
-    if g:indentLine_leadingSpaceEnabled
-        call s:LeadingSpaceEnable()
+    if exists("b:indentLine_leadingSpaceEnabled")
+        if b:indentLine_leadingSpaceEnabled
+            call s:LeadingSpaceEnable()
+        endif
+    else
+        if g:indentLine_leadingSpaceEnabled
+            call s:LeadingSpaceEnable()
+        endif
     endif
 endfunction
 
